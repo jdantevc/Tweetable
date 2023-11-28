@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if !@user.avatar.attached?
+      @user.avatar.attach(io: File.open("app/assets/images/avatar.png"), filename: "default_avatar.png")
+    end
+
     if @user.save
       redirect_to @user, notice: "User was successfully created."
     else
@@ -53,6 +57,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :role)
+      params.require(:user).permit(:username, :name, :role, :email, :encrypted_password, :avatar)
     end
 end
