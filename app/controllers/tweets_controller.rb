@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: :desc)
   end
 
   # GET /tweets/1
@@ -22,11 +22,12 @@ class TweetsController < ApplicationController
 
   # POST /tweets
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
 
     if @tweet.save
       redirect_to @tweet, notice: "Tweet was successfully created."
     else
+      puts @tweet.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -54,6 +55,9 @@ class TweetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tweet_params
-      params.require(:tweet).permit(:body, :replies_count, :likes_count, :user_id, :replied_to)
+      params.require(:tweet).permit(:body, :replies_count, :likes_count, :user_id, :replied_to).tap do |whitelisted|
+
+        whitelisted[:replied_to] = nil if whitelisted[:replied_to].blank?
+      end
     end
 end

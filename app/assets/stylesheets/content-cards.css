@@ -3,34 +3,31 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 1em;
+  padding: 0.5em;
   overflow: hidden;
 }
 
 .content-card__header {
   display: flex;
-  gap: 0.5em;
   align-items: center;
 }
 
 .content-card__details {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  line-height: 1;
+  text-align: justify;
+  line-height: 1.5;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .content-card__footer {
   display: flex;
   justify-content: flex-end;
-  gap: 1em;
+  gap: 0.5em;
+  align-items: center;
 }
 
 .content-card__avatar {
-  max-width: 64px;
-}
-
-.photo__delete-logo {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 5px;
-  padding-right: 10px;
+  margin-right: 1em;
 }

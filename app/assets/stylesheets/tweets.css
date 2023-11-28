@@ -1,0 +1,53 @@
+.department-card {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.department-card__content {
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.department-card__image {
+  width: 100%;
+}
+
+.warning{
+  color: var(--error-400);
+}
+
+.align-right {
+  display: flex;
+  justify-content: end;
+}
+
+.mt-1 {
+  margin-top: 0.25em;
+}
+
+/* app/assets/stylesheets/styles.css (or application.css) */
+.new-tweet-form {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.new-tweet-form textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
