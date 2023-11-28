@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #Active Storage
   has_one_attached :avatar
+  #Associations
+  has_many :tweets, dependent: :destroy
 end
