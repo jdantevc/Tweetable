@@ -1,8 +1,9 @@
+<section>
 <p style="color: green"><%= notice %></p>
 
 <h1>Tweets</h1>
-
-<div id="tweets">
+<div class="container">
+<div>
   <% @tweets.each do |tweet| %>
     <%= render tweet %>
     <p>
@@ -12,3 +13,5 @@
 </div>
 
 <%= link_to "New tweet", new_tweet_path %>
+</div>
+</section>

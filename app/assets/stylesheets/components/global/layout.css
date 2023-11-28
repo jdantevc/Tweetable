@@ -1,0 +1,40 @@
+.section {
+  padding: 16px 16px;
+  background-color: #F2F2F2;
+}
+
+.section-sm {
+  padding: 16px;
+}
+
+.container {
+  max-width: 760px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #F2F2F2;
+}
+
+.container-lg {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.container-xl {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.button-container {
+  background-color: var(--gray-200);
+  border-radius: 50%;
+  padding: 7px;
+  filter: invert(100%);
+}
+
+.bl {
+  border-right: 2px solid black;
+}
+
+.bb {
+  border-bottom: 2px solid var(--gray-200);
+}
