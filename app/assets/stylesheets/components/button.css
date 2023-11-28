@@ -28,6 +28,12 @@
   color: white;
 }
 
+.button--primary-alt {
+  background-color: var(--primary-300);
+  color: white;
+  width: 40%;
+}
+
 .button--primary:hover {
   background-color: var(--primary-400);
 }

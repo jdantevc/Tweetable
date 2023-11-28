@@ -4,6 +4,7 @@
   flex-direction: column;
   background-color: white;
   padding: 1em;
+  overflow: hidden;
 }
 
 .content-card__header {
