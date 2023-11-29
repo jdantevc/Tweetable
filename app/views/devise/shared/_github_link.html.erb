@@ -1,0 +1,7 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div data-turbo="false">
+      <%= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "button button--secondary" %>
+    </div>
+  <% end %>
+<% end %>
