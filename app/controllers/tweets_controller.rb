@@ -9,6 +9,8 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1
   def show
+    @tweet = Tweet.find(params[:id])
+    @reply = Tweet.new 
   end
 
   # GET /tweets/new
@@ -47,6 +49,19 @@ class TweetsController < ApplicationController
     redirect_to tweets_url, notice: "Tweet was successfully destroyed."
   end
 
+  def reply
+    @tweet = Tweet.find(params[:id])
+    @reply = @tweet.replies.build(reply_params.merge(user: current_user))
+
+    if @reply.save
+      redirect_to @tweet, notice: 'Reply created successfully.'
+    else
+      render 'show'
+      puts @tweet.errors.full_messages
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
@@ -59,5 +74,9 @@ class TweetsController < ApplicationController
 
         whitelisted[:replied_to] = nil if whitelisted[:replied_to].blank?
       end
+    end
+
+    def reply_params
+      params.require(:tweet).permit(:body)
     end
 end

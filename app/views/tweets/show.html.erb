@@ -1,9 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
+<section class="section">
+<div class="container">
+<h2 class="heading--sm center-text mb-4">Tweet Detail</h2>
 <%= render @tweet %>
+<p><%= "-" * 50 %></p>
+<div class= "mb-2">
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+<%= render 'reply' %>
 </div>
+
+<% @tweet.replies.each do |reply| %>
+  <div>
+    <div class="content-card mb-2">
+      <div class="content-card__details">
+        <div class="content-card__header mb-2">
+          <div class="content-card__avatar">
+            <%= image_tag reply.user.avatar, max_width: 48, max_height: 48, alt: "User Avatar" %>
+          </div>
+          <div class="gap-2">
+            <strong><%= reply.user.name %></strong>
+            <%= link_to "@#{reply.user.name}", user_path(reply.user), class: "link" %>
+            <p class="faded_text mb-2"><%= time_ago_in_words(reply.created_at) %> ago</p>
+          </div>
+          </div>
+          <div class = 'mb-2'>
+            <%= reply.body %>
+          </div>
+
+          <div class="content-card__footer">
+            <%= link_to image_tag("chat.png"), tweet_path(reply) %>
+            <%= reply.replies.count %>
+            <%= image_tag "heart.png" %>
+            <%= reply.likes.count %>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</section>

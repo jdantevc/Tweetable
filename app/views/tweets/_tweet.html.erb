@@ -18,7 +18,7 @@
 
       <div class="content-card__footer">
         <%= link_to image_tag("chat.png"), tweet_path(tweet) %>
-        <%= tweet.replies_count %>
+        <%= tweet.replies.count %>
         <%= image_tag "heart.png" %>
         <%= tweet.likes.count %>
       </div>
