@@ -18,7 +18,7 @@
         <% if user_signed_in? %>
           <%= link_to "Profile", user_path(current_user) %>
           <%= link_to  "Log out", destroy_user_session_path, data: { turbo_method: :delete} %>
-          <% else %>
+        <% else %>
           <%= link_to "Sign in", new_user_session_path %>
         <%end%>
     </header>
@@ -33,8 +33,8 @@
         <p>Build With 🖤 By</p>
       <div>
       <div class = "flex-container wrap padd-t">
-        <div class="tag-container bl">
-        <%=link_to(image_tag("/images/github-mark.png", width: 25, height: 25),"https://github.com/jdantevc", class: "logo")%>
+        <div class="tag-container bl gap-2">
+        <%=link_to(image_tag("github-mark.png", width: 25, height: 25),"https://github.com/jdantevc", class: "logo")%>
         <p class = "content-sm bold">Dante Vasquez</p>
         </div>
       </div>
