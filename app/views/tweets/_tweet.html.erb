@@ -7,7 +7,7 @@
         </div>
         <div class="gap-2">
           <strong><%= tweet.user.name %></strong>
-          <%= link_to "@#{tweet.user.name}", user_path(tweet.user), class: "link" %>
+          <%= link_to "@#{tweet.user.username}", user_path(tweet.user), class: "link" %>
           <p class="faded_text mb-2"><%= time_ago_in_words(tweet.created_at) %> ago</p>
         </div>
       </div>
