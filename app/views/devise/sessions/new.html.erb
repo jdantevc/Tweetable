@@ -1,0 +1,35 @@
+<section class="section">
+<div class="container">
+<h2 class="heading--sm center-text mb-4">Sign into your account</h2>
+<div class= "content-card">
+<div class= "center-text">
+  <p class = "input mb-4 content-xs overline">Continue with</p>
+  <%= render "devise/shared/github_link"%><br>
+  <p class = "input mb-4 content-xs overline">Or</p>
+</div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="input mb-4">
+    <%= f.label :email, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail.com", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :password, class: "content-xs overline" %>
+    <div class="input__container">    
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "********", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="actions mb-4">
+    <%= f.submit "Sign in", class: "button button--primary" %>
+  </div>
+<% end %>
+<p class="center-text mb-4">Don't have an account?<p>
+<div class= "center-text">
+<%= render "devise/shared/links"%>
+</div>
+</div>
+</div>
+</section>

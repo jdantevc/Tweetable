@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="container">
+   <h2 class="heading--sm center-text mb-4">Home</h2>
+    <div class="container">
+      <% if user_signed_in? %>
+        <%= render 'custom_tweet', tweet: current_user.tweets.build %>
+      <% end %>
+      <div>
+        <% @tweets.each do |tweet| %>
+          <%= render tweet %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

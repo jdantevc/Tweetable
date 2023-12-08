@@ -1,0 +1,70 @@
+<section class="section">
+<div class="container">
+<h2 class="heading--sm center-text mb-4">Edit Profile</h2>
+<div class= "content-card">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="input mb-4">
+    <%= f.label :username, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "example", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :email, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail.com", class: "input__content" %>
+  </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="input mb-4">
+    <%= f.label :name, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Exampe Name", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :avatar, class: "content-xs overline" %>
+    <div>
+    <%= f.file_field :avatar, class: "input__content" %>  
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :password, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "********", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :password_confirmation, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new password", placeholder: "********", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="input mb-4">
+    <%= f.label :current_password, class: "content-xs overline" %>
+    <div class="input__container ">
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "********", class: "input__content" %>
+  </div>
+  </div>
+
+  <div class="actions mb-4">
+    <%= f.submit "Update", class: "button button--primary"  %>
+  </div>
+<% end %>
+<div class= "center-text">
+<%= link_to "Back", :back , class: "link"%>
+</div>
+</div>
+</div>
+</section>

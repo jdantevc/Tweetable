@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+  <header>
+      <div class="container">
+        <div class="header navbar">
+        <%= link_to root_path do%>
+          <h2 class="heading--xs">{ Tweetable }</h2>
+        <%end%>
+        <% if user_signed_in? %>
+          <%= link_to "Profile", user_path(current_user) %>
+          <%= link_to  "Log out", destroy_user_session_path, data: { turbo_method: :delete} %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <%end%>
+    </header>
+    <hr>
+    <p class="notice"><%= notice %></p>
+    <p style="color:red; font-size: 20px"><%= alert %></p>
     <%= yield %>
+    <hr>
+    <footer class="footer footer__content">
+      <div class="center-text">
+        <p class="mb-2">© 2023 - Tweetable</p> 
+        <p>Build With 🖤 By</p>
+      <div>
+      <div class = "flex-container wrap padd-t">
+        <div class="tag-container bl gap-2">
+        <%=link_to(image_tag("github-mark.png", width: 25, height: 25),"https://github.com/jdantevc", class: "logo")%>
+        <p class = "content-sm bold">Dante Vasquez</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+<%# rails g devise:views %>

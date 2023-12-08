@@ -1,0 +1,35 @@
+<div id="<%= dom_id tweet %>">
+  <div class="content-card mb-2">
+    <div class="content-card__details">
+      <div class="content-card__header mb-2">
+        <div class="content-card__avatar">
+          <%= image_tag tweet.user.avatar, width: 48, height: 48, alt: "User Avatar" %>
+        </div>
+        <div class="gap-2">
+          <strong><%= tweet.user.name %></strong>
+          <%= link_to "@#{tweet.user.username}", user_path(tweet.user), class: "link" %>
+          <p class="faded_text mb-2"><%= time_ago_in_words(tweet.created_at) %> ago</p>
+        </div>
+      </div>
+
+      <div class= "mb-2">
+        <%= tweet.body %>
+      </div>
+
+      <div class="content-card__footer mb-2">
+        <div>
+          <%= button_to tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" }, form_class: "delete-form" do %>
+            <%= image_tag("trash.png") %>
+          <% end %>
+        <%=link_to image_tag("pencil.png"), edit_tweet_path(tweet)%>
+        </div>
+        <div>
+        <%= link_to image_tag("chat.png"), tweet_path(tweet) %>
+        <%= tweet.replies.count %>
+        <%= image_tag "heart.png" %>
+        <%= tweet.likes.count %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+/* colors */
+.white {
+  color: #fff;
+}
+
+.bg-gray-100 {
+  background-color: var(--gray-100);
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Margins */
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.35rem;
+}
+
+/* Flex & Grid */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 0.5rem
+}
+
+.items-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Width */
+.fit-content {
+  width: fit-content;
+}
+
+.padd-l {
+  padding-left: 1.5em;
+}
+
+.padd-r {
+  padding-right: 1em;
+}
+
+.padd-b {
+  padding-bottom: 1em;
+}
+
+.padd-t {
+  padding-top: 1em;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.padding {
+  padding: 5px 0;
+}
